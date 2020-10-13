@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Product</h2>
+<form id="createProduct">
+    <label>Name</label>
+    <input id="nameTxt" name="Name" />
+    <br />
+    <label>Descripton</label>
+    <input id="descpTxt" name="Description" />
+    <br />
+    <label>Price</label>
+    <input id="priceTxt" name="Price" />
+    <br />
+    <button id="saveBtn" type="button">Save</button>
+</form>
+
+<script>
+
+    $("#saveBtn").click(function () {       
+        $.ajax({
+            type:'POST',
+            url: '/Product/Create',
+            data: 
+                $('#createProduct').serialize()
+                //Name: $('#nameTxt').val(),
+                //Price: $('#descpTxt').val(),
+                //Description: $('#priceTxt').val()
+            
+        })
+            .done(function (respose) {
+                $('#tableContiner').html(respose);
+                $("#actionContainer").html('');
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Fail");
+            });
+    });
+</script>
+
