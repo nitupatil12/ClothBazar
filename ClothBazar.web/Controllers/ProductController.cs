@@ -15,6 +15,7 @@ namespace ClothBazar.web.Controllers
         public ActionResult Index()
         {
             return View();
+
         }
 
         public ActionResult ProductTable(string serach)
