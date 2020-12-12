@@ -4,7 +4,7 @@
 }
 
 <h2>Edit Category</h2>
-<form method="post">
+<form id="editCategory">
 
     <input type="hidden" value="@Model.ID" />
     <label>Name</label>
@@ -13,6 +13,17 @@
     <label>Descripton</label>
     <input name="Description"  value="@Model.Description"/>
     <br />
-    <button type="submit">Save</button>
+    <button id="updateBtn" type="button">Update</button>
 </form>
+
+<script>
+    $("#updateBtn").click(function () {
+        $.ajax({
+            type:"Post",
+            url: "",
+            data: $("#editCategory").serialize()
+        })
+    });
+
+</script>
 
